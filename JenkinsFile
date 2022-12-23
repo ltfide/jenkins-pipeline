@@ -4,17 +4,24 @@ pipeline {
     stages {
         stage("Hello") {
             steps {
-                echo("Start build")
+
+                script {
+                  for (int i = 1; i <= 10; i++) {
+                    echo("Script ${i}")
+                  }
+                }
+
+                echo("Start Build")
                 bat("./mvnw clean compile test-compile")
-                echo("Finish build")
+                echo("Finish Build")
             }
         }
 
         stage("Test") {
             steps {
-                echo("Start test")
+                echo("Start Test")
                 bat("./mvnw test")
-                echo("Finish test")
+                echo("Finish Test")
             }
         }
 
