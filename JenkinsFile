@@ -11,7 +11,31 @@ pipeline {
       timeout(time: 10, unit: "MINUTES")
     }
 
+    parameters {
+      string(name: "NAME", defaultValue: "GUEST", description: "What is your name?")
+      text(name: "DESCRIPTION", defaultValue: "", description: "Tell me about you?")
+      booleanParam(name: "DEPLOY", defaultValue: FALSE, description: "Need to deploy?")
+      choice(name: "SOCIAL_MEDIA", choices: ["Instagram", "Facebook"], description: "which social media?")
+      password(name: "SECRET", description: "", description: "Encrypt key")
+    }
+
     stages {
+        stage("Parameter") {
+          agent {
+            node {
+              label "java11"
+            }
+          }
+
+          steps {
+            echo "Hello, ${params.NAME}"
+            echo "Description: ${params.DESCRIPTION}"
+            echo "Deploy: ${params.DEPLOY}"
+            echo "Social Media: ${params.SOCIAL_MEDIA}"
+            echo "Secret: ${params.SECRET}"
+          }
+        }
+
         stage("Preparation") {
           environment {
             APP = credentials("lutfi_secret")
