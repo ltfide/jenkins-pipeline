@@ -1,10 +1,15 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage("Hello") {
-            steps {
+            agent {
+              node {
+                label "java11"
+              }
+            }
 
+            steps {
                 script {
                   for (int i = 1; i <= 10; i++) {
                     echo("Script ${i}")
@@ -18,8 +23,13 @@ pipeline {
         }
 
         stage("Test") {
-            steps {
+            agent {
+              node {
+                label "java11"
+              }
+            }
 
+            steps {
                 script {
                   def data = [
                     "firstName": "Lutfi",
@@ -36,6 +46,12 @@ pipeline {
 
    
         stage("Deploy") {
+            agent {
+              node {
+                label "java11"
+              }
+            }
+
             steps {
                 echo "Hello Deploy 1"
                 sleep(5)
