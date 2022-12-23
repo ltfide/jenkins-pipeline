@@ -8,6 +8,9 @@ pipeline {
 
     stages {
         stage("Preparation") {
+          environment {
+            APP = credentials("lutfi_secret")
+          }
           agent {
             node {
               label "java11"
@@ -20,6 +23,8 @@ pipeline {
             echo("Start Job: ${env.JOB_NAME}") 
             echo("Start Build: ${env.BUILD_NUMBER}") 
             echo("Branch Name: ${env.BRANCH_NAME}") 
+            echo("APP User: ${env.APP_USR}") 
+            echo("APP Password: ${env.APP_PSW}") 
           }
         }
 
