@@ -19,10 +19,10 @@ pipeline {
       password(name: "SECRET", defaultValue: "", description: "Encrypt key")
     }
 
-    triggers {
-      // cron("* * * * *")
-      // poolSCM("*/5 * * * *")
-    }
+    // triggers {
+    //   // cron("* * * * *")
+    //   // poolSCM("*/5 * * * *")
+    // }
 
     stages {
         stage("Parameter") {
