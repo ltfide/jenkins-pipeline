@@ -24,7 +24,7 @@ pipeline {
             echo("Start Build: ${env.BUILD_NUMBER}") 
             echo("Branch Name: ${env.BRANCH_NAME}") 
             echo("APP User: ${env.APP_USR}") 
-            bat('echo "APP Password" : $APP_PSW" > "secret.txt"') 
+            bat('echo "APP Password : $APP_PSW" > "secret.txt"') 
           }
         }
 
