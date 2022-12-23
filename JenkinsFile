@@ -12,19 +12,19 @@ pipeline {
 
         stage("Test") {
             steps {
-                echo "Hello Test 1"
-                sleep(5)
-                echo "Hello Test 2"
-                echo "Hello Test 3"
+                echo("Start test")
+                bat("./mvnw test")
+                echo("Finish test")
             }
         }
 
    
         stage("Deploy") {
             steps {
-                echo("Start test")
-                bat("./mvnw test")
-                echo("Finish test")
+                echo "Hello Deploy 1"
+                sleep(5)
+                echo "Hello Deploy 2"
+                echo "Hello Deploy 3"
             }
         }
     }
