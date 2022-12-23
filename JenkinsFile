@@ -20,7 +20,8 @@ pipeline {
     }
 
     triggers {
-      cron("* * * * *")
+      // cron("* * * * *")
+      // poolSCM("*/5 * * * *")
     }
 
     stages {
