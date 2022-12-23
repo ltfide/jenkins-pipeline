@@ -4,21 +4,26 @@ pipeline {
     stages {
         stage("Hello") {
             steps {
-                echo "Hello World"
+                echo "Hello World 1"
+                echo "Hello World 2"
+                echo "Hello World 3"
             }
         }
 
         stage("Test") {
             steps {
-                echo "Hello Test"
-		sh("ERROR")
+                echo "Hello Test 1"
+                echo "Hello Test 2"
+                echo "Hello Test 3"
             }
         }
 
    
         stage("Deploy") {
             steps {
-                echo "Hello Deploy"
+                echo "Hello Deploy 1"
+                echo "Hello Deploy 2"
+                echo "Hello Deploy 3"
             }
         }
     }
