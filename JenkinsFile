@@ -19,6 +19,10 @@ pipeline {
       password(name: "SECRET", defaultValue: "", description: "Encrypt key")
     }
 
+    triggers {
+      cron("* * * * *")
+    }
+
     stages {
         stage("Parameter") {
           agent {
