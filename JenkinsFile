@@ -8,4 +8,19 @@ pipeline {
             }
         }
     }
+
+    post {
+      always {
+        echo "I will always say hello"
+      }
+      success {
+        echo "Success"
+      }
+      failure {
+        echo "Failure"
+      }
+      cleanup {
+        echo "Don't care success or failure"
+      }
+    }
 }
